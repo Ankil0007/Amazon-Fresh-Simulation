@@ -1,0 +1,26 @@
+{
+  "name": "root",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "client-sessions": "^0.7.0",
+    "cookie-parser": "latest",
+    "ejs": "*",
+    "express": "3.2.6",
+    "express-session": "latest",
+    "mysql": "^2.10.2"
+  },
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "author": "",
+  "license": "ISC"
+}

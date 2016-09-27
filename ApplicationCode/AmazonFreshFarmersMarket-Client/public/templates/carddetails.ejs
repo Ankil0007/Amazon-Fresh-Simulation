@@ -1,0 +1,48 @@
+
+<html>
+
+<div class="container" ng-controller="signup">
+	<div class="row">
+	
+		<div class="col-md-4 stripsbackground">
+		<h3> Enter Card Details </h3>
+		<form name="frmcarddetails">
+			
+		<br> <input type="number" name="cardno" placeholder = "Enter Credit Card #" 
+			ng-model="cardno" ng-minlength = "12" ng-maxlength = "12" ng-pattern="/^[0-9]+$/" ng-required="true"/>
+	<br/>
+		<br> <input type="text" name="cardholdername" placeholder = "Name as it appears on credit card" 
+			ng-model="cardholdername" ng-required="true"/>
+	
+		<br/>
+		<br>Expiration Date:
+		 <select name="day" id="month"  ng-model = "expirationmonth" ng-required="true">
+			<option value="01" selected>01</option>
+			<option value="02">02</option>
+			<option value="03">03</option>
+			<option value="04">04</option>
+			<option value="05">05</option>
+			<option value="06">06</option>
+			<option value="07">07</option>
+			<option value="08">08</option>
+			<option value="09">09</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+		 </select>
+		 
+		 <select name="year" id="year" ng-model = "expirationyear" ng-required="true">
+			<option value="2016" selected>2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+		 </select>
+		 <br/>
+		<br><button class="btn btn-success pull-left" ng-disabled="frmcarddetails.$invalid" ng-click = "frmcarddetails.$valid && finalsignup()" >Sign up</button>
+	</form> 	
+		</div>	
+		</div>
+	</div>
+
+</html>

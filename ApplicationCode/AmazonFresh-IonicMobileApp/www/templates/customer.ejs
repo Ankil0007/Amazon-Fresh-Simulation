@@ -1,0 +1,32 @@
+
+<div class="container-fluid"  ng-controller="customer">
+<div class="row">
+	<br/>
+	<div class="col-md-9" ng-init="listAllProducts()">
+		<div class="row item-div">
+           <div class="inner-addon right-addon">
+	           	<form class="" name="searchForm" id="searchForm" method="POST" role="search" ng-submit="searchProduct()">
+			      <i class="glyphicon glyphicon-search" ng-click="searchProduct()"></i>
+			      <input type="text" name="searchString" ng-model="searchString" id="search_box" class="form-control search-input" placeholder="Search Amazon Fresh"/>
+				</form>
+		   </div>
+		   <br/>
+		   <div ng-hide="error_message">
+		   		<div class="alert alert-danger">{{status_message}}
+		   		</div>
+		   </div>
+		   <div ui-view="products_content">
+		   </div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div ui-view="cart"></div>
+	</div>
+</div>
+<div ui-view="loadMore">
+	<!-- <div class="col-md-12"><br/>
+		<div class="center"><br/><br/><input type="button" class="btn ff-btn" value="Load More" ng-click="loadMoreProducts()"/> </div>
+	</div> -->
+</div>
+</div>
+</div>

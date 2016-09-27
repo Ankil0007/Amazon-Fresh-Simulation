@@ -1,0 +1,77 @@
+<div class="container-fluid">
+<div class="row" ng-controller="admin">
+<div class = "col-md-2" >
+ <div class="list-group">
+	 <a ng-click="viewrequests();" class="list-group-item list-group-item-success adminmenu">View Requests</a>
+	 <a ng-click="viewproducts();" class="list-group-item list-group-item-success adminmenu">View Products</a>
+	  <a ng-click="viewcustomeraccounts();" class="list-group-item list-group-item-success adminmenu">View Customers</a>
+	 <a ng-click="viewfarmeraccounts();" class="list-group-item list-group-item-success adminmenu">View Farmers</a>
+	 <a ng-click="statisticsdata();" class="list-group-item list-group-item-success adminmenu">Statistics Data</a>
+	 <a ng-click="viewridedata();" class="list-group-item list-group-item-success adminmenu">View Ride Data</a>
+	 <a ng-click="searchbill();" class="list-group-item list-group-item-success adminmenu">Search Bill</a> 
+  </div>
+</div>
+
+<div class = "col-md-3" ng-init = "viewfarmernames();">
+
+<div class = "panel panel-success" ng-hide="farmernames">
+<div class = "panel-heading">
+Farmers
+</div>
+<div class = "panel-body">
+<form role="form"> 
+       <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchStr" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" ng-click="searchFarmer();" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+      </form><br/>
+<ul class="list-group" ng-repeat="x in farmers| limitTo:limitfarmerdetails">
+<li class="list-group-item list-group-item-success">
+
+<a class="reqlink"  ng-click="showFarmerDetail1(x.farmer_id);">{{x.firstname}}&nbsp;{{x.lastname}}</a>
+</li>
+ </ul>
+<button class="btn btn-block btn-success" ng-click="loadmorefarmerdetails();">Load More</button>
+
+</div>
+
+</div>
+    
+    
+<h3>{{statusMessage}}</h3>    
+</div>
+
+<div class = "col-md-7" >
+
+<div class="panel panel-success" style="border:2px solid darkgreen" ng-hide="farmerinfo">
+      <div class="panel-heading" style ="border-radius:10px"> 
+      <h5><center><strong>Farmer's Information</strong></center></h5><hr style="backgroiund-color:black">
+      <h6><strong>Name: {{farmerdetails.firstname}} &nbsp;&nbsp; {{farmerdetails.lastname}}</strong></h6>
+      <h6><strong>Address: {{farmerdetails.address}}</strong></h6>
+       <h6><strong>City: {{farmerdetails.city}}</strong></h6>
+      <h6><strong>State: {{farmerdetails.state}}</strong></h6>
+      <h6><strong>Zip Code: {{farmerdetails.zip_code}}</strong></h6>
+      <h6><strong>Phone Number: {{farmerdetails.phone_number}}</strong></h6>
+     <h6> <strong>Email: {{farmerdetails.email}}</strong></h6>
+      <h6><strong>Description : {{farmerdescription.description}}</strong> </h6>
+      </div>
+      <div class="panel-body" style ="border-radius:10px"> 
+      <div class="row">
+      <div class="col-md-6" >
+      <img id="profilepic" data-ng-src = "{{farmerdescription.image}}" 
+						style="height: 200px; width: 220px;" /></div>
+	<div class="col-md-6" >
+	  <video id="profilevideo" style="height: 200px; width: 220px;" style="border: 2px solid darkgreen;"
+					controls data-ng-src={{farmerdescription.video}}></div>
+				</video>	
+      </div>
+      </div>
+ </div>
+{{statusMessageInfo}}
+</div>
+</div>
+</div>
+
+</div>

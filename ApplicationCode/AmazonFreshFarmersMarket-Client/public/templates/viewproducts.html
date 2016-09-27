@@ -1,0 +1,71 @@
+<div class="container-fluid">
+<div class="row" ng-controller="admin">
+<div class = "col-md-2" >
+ <div class="list-group">
+	 <a ng-click="viewrequests();" class="list-group-item list-group-item-success adminmenu">View Requests</a>
+	 <a ng-click="viewproducts();" class="list-group-item list-group-item-success adminmenu">View Products</a>
+	  <a ng-click="viewcustomeraccounts();" class="list-group-item list-group-item-success adminmenu">View Customers</a>
+	 <a ng-click="viewfarmeraccounts();" class="list-group-item list-group-item-success adminmenu">View Farmers</a>
+	 
+	 <a ng-click="statisticsdata();" class="list-group-item list-group-item-success adminmenu">Statistics Data</a>
+	 <a ng-click="viewridedata();" class="list-group-item list-group-item-success adminmenu">View Ride Data</a>
+	 <a ng-click="searchbill();" class="list-group-item list-group-item-success adminmenu">Search Bill</a> 
+  </div>
+</div>
+
+<div class = "col-md-3" ng-init = "viewproductsinfo();" >
+
+<div class = "panel panel-success" ng-hide="listofproducts">
+<div class = "panel-heading">
+Products
+</div>
+<div class = "panel-body">
+<ul class="list-group" ng-repeat="x in products| limitTo:limitproductinfo">
+<li class="list-group-item list-group-item-success">
+<center><br/>
+						<a class="reqlink"  ng-click="showProductDetail(x.product_id);">{{x.product_name}}</a></center><br>
+
+</li>
+ </ul>
+<button class="btn btn-block btn-success" ng-click="loadmoreproductinfo();" ng-hide="hidep">Load More</button>
+
+</div>
+
+
+</div>
+<h3>{{statusMessage}}</h3>    
+    
+    
+</div>
+
+<div class = "col-md-7" >
+<div class = "panel panel-success" ng-hide="showMap">
+<div class = "panel-heading">
+{{product.product_name}}
+</div>
+<div class = "panel-body" id="map">
+<strong>Product Name:</strong>{{product.product_name}}<br/>
+<strong>Product Price:</strong>{{product.product_price}}<br/>
+<strong>Product Description:</strong>{{product.product_description}}<br/>
+<strong>Product Quantity:</strong>{{product.product_quantity}}<br/>
+<strong>Product Review:</strong>
+<ul>
+<li ng-repeat = "rev in mongoresult.reviews">
+Customer Name: {{rev.firstname }}&nbsp;&nbsp;{{rev.lastname}} <br/>
+Rating: {{rev.rating}}<br/>
+Review {{rev.review }}</li>
+</ul>
+ </div>
+
+</li>
+ </ul>
+</div>
+{{statusMessageProductInfo}}
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>

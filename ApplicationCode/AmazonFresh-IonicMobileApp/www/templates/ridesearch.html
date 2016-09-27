@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <script type="text/javascript">
+  $(document).ready(function(){
+	  $("#inputdate").show();
+      $("#inputcustomername").hide();
+      $("#inputbillingid").hide();
+      $('input[name="inputdate"]').prop('required',true);
+	    $('#category').on('change', function() {
+	      if ( this.value == 'date')
+	      {
+		        $("#inputdate").show();
+		        $("#inputcustomername").hide();
+		        $("#inputbillingid").hide();
+		        $('input[name="inputdate"]').prop('required',true);
+		        $('input[name="inputcustomername"]').prop('required',false);
+		        $('input[name="inputbillingid"]').prop('required',false);
+		        
+	      }
+	      else if(this.value == 'customer')
+	      {
+	    	    $("#inputdate").hide();
+		        $("#inputcustomername").show();
+		        $("#inputbillingid").hide();
+		        $('input[name="inputdate"]').prop('required',false);
+		        $('input[name="inputcustomername"]').prop('required',true);
+		        $('input[name="inputbillingid"]').prop('required',false);
+		        
+
+	      }
+	      else
+	    	  {
+	    	    $("#inputdate").hide();
+		        $("#inputcustomername").hide();
+		        $("#inputbillingid").show();
+		        $('input[name="inputdate"]').prop('required',false);
+		        $('input[name="inputcustomername"]').prop('required',false);
+		        $('input[name="inputbillingid"]').prop('required',true);
+	    	  }
+	    });
+	});
+
+  </script>
+<div class="row" ng-controller="admin">
+<div class = "col-md-2" >
+ 
+</div>
+
+<div class = "col-md-3" >
+
+<form role="form" name="rideform">
+    <div class="form-group">
+      <label>Search Ride By</label>
+      <select class="form-control" id="category">
+        <option value="driver">Driver Id</option>
+        <option value="area">Area</option>
+        <option value="customer">Customer Id</option>
+      </select>
+      </div>
+      <div class="form-group"><input class="form-control" type ="text" ng-model="searchstr" id="searchstring" ng-required="true">
+      </div>
+      <div class="form-group">
+ <input type="submit" value="Search Ride" class="btn btn-success"  ng-click = "rideform.$valid && searchride();" placeholder="enter search string">
+ </div>
+    </form>
+    
+</div>
+
+<div class = "col-md-7" >
+<div class = "panel panel-success" ng-hide="showMap">
+<div class = "panel-heading">
+Rides
+</div>
+<div class = "panel-body" id="map" style="width: 100%; height: 400px;">
+
+</div>
+
+</div>
+</div>
+<h3>{{statusMessageRideSearch}}</h3>
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,95 @@
+.h3-white{
+	color:#ffffff;
+}
+
+.mybutton{
+    background:none;
+    border-color: #ffffff;
+    color:#ffffff;
+    width: 150px;
+}
+
+.mybutton:hover{
+	background-color:#ffffff;
+	color:#00aced;
+}
+   
+.mybutton:focus {
+	outline:0;
+    background: #ffffff;
+    color:#00aced;
+    }
+    
+    .mylink{
+    color:#ffffff;
+    }
+    
+  .signupinput{
+  height:50px;
+  }
+  .panelsignup {
+    border: 0;
+}
+  .dngrmsg {
+   color:red;
+}
+
+  .myskip {
+   background:none;
+   border-color: #ffffff;
+   color:#00aced;
+}
+
+.mynav{
+	background: #ffffff;
+    color:#00aced;
+}
+.navbar .nav > li > a {
+    
+    color:  #00aced;
+}
+
+.navbar .nav > li > a:hover {
+    background:#00aced;
+    color:  #ffffff;
+    
+}
+
+.mycount {
+   margin-top:-7px;color:#00aced;
+    
+}
+.mycountheading:hover {
+  color:#00aced;
+  cursor:pointer;
+    
+}
+
+.mytweetbutton{
+	background:#2F99C2;
+}
+.blue, .blue a {
+  color: #00aced;
+}
+.gray{
+	
+	color:#d3d3d3;
+	margin-top:5px;
+font-size: 1.5em;
+}
+
+.myfollowbtn{
+font-weight:bold;	
+
+}
+.mystrong:hover{
+	 color:#00aced;
+	 text-decoration: underline;
+  cursor:pointer
+	
+}
+
+.mydanger:hover{
+		background:#C6234C;
+	 
+}

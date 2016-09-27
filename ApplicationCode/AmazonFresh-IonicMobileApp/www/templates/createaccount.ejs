@@ -1,0 +1,51 @@
+<div class="container" ng-controller="signup">
+	<div class="row">
+		<div class="col-md-4 stripsbackground">
+			
+				<form name = "frmcreateaccount">
+				<h3> Create New Account</h3>
+				<div>
+					<br> <input type="text" name="firstName" placeholder = "First Name" 
+						ng-model="firstName" ng-required="true"/>
+						
+				</div>
+				
+				<div>
+					<br> <input type="text" name="lastName" placeholder = "Last Name" 
+						ng-model="lastName" ng-required="true"/>
+						
+				</div>
+				
+				<div>
+					<br> <input type="email" name="email" placeholder = "Enter Email" 
+						ng-model="email" ng-required="true"/>
+				</div>
+				
+				<div>
+					<br> <input type="email" name="verifyemail" placeholder = "Verify Email" 
+						ng-model="verifyemail" ng-required="true"/>
+					</div>
+					<span ng-show="IsMatchEmail">Emails have to match!</span>
+					<span ng-show="IsRegisteredEmail">Email is already registered!</span>
+					<span >{{statusMessage}}</span>
+					<div>	
+					<br> <input type="password" name="password" placeholder = "Enter Password" 
+						ng-model="password" ng-minlength="6" ng-maxlength="20" ng-required="true"/>
+						<div>
+						<span class="select2-container text-error resize" ng-show="frmcreateaccount.password.$error.minlength">Password should be more than 6 characters.</span>
+						<span class="select2-container text-error resize" ng-show="frmcreateaccount.password.$error.maxlength">Password must be less than 20 characters.</span>
+						<div>
+					<br> <input type="password" name="verifypassword" placeholder = "Verify Password" 
+						ng-model="verifypassword" ng-minlength="6" ng-maxlength="20" ng-required="true"/>
+						</div>
+						<span class="select2-container text-error resize" ng-show="frmcreateaccount.verifypassword.$error.minlength">Password must be more than 6 characters.</span>
+						<span class="select2-container text-error resize" ng-show="frmcreateaccount.verifypassword.$error.maxlength">Password must be less than 20 characters.</span>
+						
+						<span ng-show="IsMatchPassword">Passwords have to match!</span>
+						<div>
+					<br><button class="btn btn-success pull-left" ng-click = "frmcreateaccount.$valid && next();"  >Continue</button> 
+					</div>
+					</form>	
+		</div>	
+		</div>
+	</div>

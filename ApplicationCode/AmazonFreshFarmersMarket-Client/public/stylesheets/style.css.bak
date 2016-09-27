@@ -1,0 +1,85 @@
+.top-menu{ background-image: url(../images/taskbar-bg.png);}
+#fresh_logo_link img{margin-top: -5px;}
+.greeting span,a{font-size:14px !important;color: white !important;}
+.greeting a{text-decoration: underline;}
+
+.login-top
+{
+	margin-top:70px;
+}
+button.ng-disabled{background-color:#cccccc;}
+.form-right
+{
+float: right;
+}
+
+.link
+{
+	color:#000000 !important;
+	float:right;
+}
+
+.link:hover{
+	color:darkgreen;
+	cursor:pointer;
+	text-decoration: underline;
+}
+
+.adminmenu{
+	color:darkgreen  !important;
+	cursor:pointer;
+	text-decoration: underline;
+}
+
+.approvalbutton{
+	float:right;
+}
+
+.stripsbackground {
+	height:400px;
+	width:1100px;
+	margin-top:30px;
+	margin-left:30px;
+   background: 
+  /* On "top" */
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 0px,
+    #e6e6e6 5px,
+    #FFFFFF 5px
+  ),
+  /* on "bottom" */
+  linear-gradient(
+    to bottom,
+    #e6e6e6,
+    #FFFFFF
+  );
+}
+
+.reqlink{
+	color:darkblue !important;
+	cursor:pointer;
+}
+
+.btnreject{
+	background-color:lightblue;
+	color:darkblue;
+}
+
+.btnaccept{
+	background-color:lightblue;
+	color:darkblue;
+}
+
+.btnreject:hover{
+	background-color:red;
+	color:white;
+}
+.btnaccept:hover{
+	background-color:green;
+	color:white;
+}
+
+
+

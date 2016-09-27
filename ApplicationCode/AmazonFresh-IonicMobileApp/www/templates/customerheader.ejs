@@ -1,0 +1,84 @@
+
+<div ng-controller="customerheader">
+	<nav class="navbar navbar-default">
+
+		<ul class='nav'>
+
+			<li>
+				<div class="dropdown">
+
+
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<button type="button" class="btn btn-success btn-xs">
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+						</button>
+					</a> <img style="vertical-align: middle;"
+						src="../img/af-logo-white-trans3.png" alt="AmazonFresh Home">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+						<li><a class="navbar-brand headerlink adminmenu"
+							href="/afterCustomerLogin" id="signInLink"><small>Home</small></a>.
+							<a class="navbar-brand headerlink adminmenu" href="#"
+							ng-click="fetchPurchaseHistory()" id="fresh_logo_link"><small>Purchase
+									History</small></a> <a class="navbar-brand headerlink adminmenu"
+							href="/logout" id="signInLink"><small>Logout</small></a>.</li>
+
+					</ul>
+				</div>
+			</li>
+
+		</ul>
+
+
+
+
+		<div ng-hide="purchase_history_div">
+			<div class="alert alert-danger">{{purchase_history_message}}</div>
+		</div>
+		<!-- <div class="navbar-header">
+	      <ul class="nav navbar-nav">
+	      	 <li class="first" >
+	             <a class="navbar-brand" href="/"  id="fresh_logo_link">
+			      	<img style="vertical-align: middle" src="../images/af-logo-white-trans3.png" alt="AmazonFresh Home">
+			     </a>
+			     <span class="greeting" id="greeting">
+	                <a class="navbar-brand" href="/" id="signInLink">Home</a>.
+	             </span>
+	          </li>
+	          <li>
+	          	 <a class="navbar-brand" ng-click="fetchPurchaseHistory()"  id="fresh_logo_link">
+			      	Purchase History
+			     </a>
+	          </li>
+		      <li class="active">
+	             
+	          </li>
+	      </ul>
+	    </div> -->
+
+
+
+
+
+		<!-- 
+<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <ul class="nav navbar-nav">
+	      <li><a href="/homepage"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+	    </ul>
+	    
+       <div>
+	     <ul class="nav navbar-nav navbar-right">
+		  <li class="li-space">
+		  <form class="" name="logout-form" method="post" role="search" action="/logout">
+		  	<button type="button" class="btn tweet-btn" onclick="document.logout-form.submit()">
+          		Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span>
+        	</button>
+		  </form>     <a href = "/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+		  </li>
+          
+		     <li><a href = "/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		    </ul>
+	    </div>
+	  </div>
+</nav> -->

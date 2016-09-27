@@ -1,0 +1,55 @@
+<div class="container" ng-controller="signup">
+
+	<div class="row">
+	<form name="frmfarmerdetails" id="frmfarmerdetails">
+		<h3>Enter Farmer's Information</h3>
+		<div class="col-md-4">
+			
+				<div>
+					<br>
+					<h3>Add a photo.</h3>
+					<input type="file" accept="image/*" value="Upload profilepic"
+						class="btn btn-success" name="profilepic" onchange="readURL(this)">
+					<br />
+				</div>
+				<div>
+					<img id="profilepic" src="/images/uploadpic.png"
+						alt="/images/uploadpic.png" style="height: 200px; width: 220px;" /><br />
+				</div>
+				<input type="hidden" name="hiddenimage" id="hiddenimage" />
+		</div>
+		<div class="col-md-4">
+			<div>
+				<br>
+				<h3>Add a Video.</h3>
+				<input type="file" accept="video/*" value="Upload profilevid"
+					class="btn btn-success" name="profilevideo"
+					onchange="readURLVideo(this)"> <br />
+			</div>
+			<div>
+				<video id="profilevideo" style="height: 200px; width: 220px;"
+					controls src="movie.mp4">
+				</video>
+				<br />
+
+			</div>
+			<input type="hidden" name="hiddenvideo" id="hiddenvideo" />
+
+		</div>
+		
+		<div class="col-md-4">
+			<div>
+				<br>
+				<h3>Add a Description.</h3><br/><br/><br/>
+				<div>
+				<textarea id ="description" rows="9" cols="25" ng-model="abc" ng-required="true"></textarea>	 <br />
+				</div>
+			</div>
+		
+	</form>
+	</div>
+		
+		<center><button class="btn btn-success"
+			ng-click="frmfarmerdetails.$valid && farmerhome();">Continue</button></center>
+			
+</div>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">  
+
+<head> 
+<!-- jquery js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+ <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<meta http-equiv="Cache-Control"
+	content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<!-- angular js -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+
+
+<!-- bootstrap js -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- css files -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel='stylesheet' href='/stylesheets/style.css'/> 
+<link rel='stylesheet' href='/stylesheets/customer.css'/>
+<link rel='stylesheet' href='/stylesheets/bootstrap-rating.css'/>
+<script src="angularjs/bootstrap-rating.js"></script>
+<script src="angularjs/bootstrap-rating.min.js"></script>
+
+<style>
+	.division{
+	width: 100%;
+	height :100%;
+	}
+	</style>
+
+<!-- controllers -->
+<script src="angularjs/index.js"></script>
+<script src="angularjs/login.js"></script>
+<script src="angularjs/angularsignup.js"></script>
+<script src="angularjs/adminhome.js"></script>
+<script src="angularjs/farmerhome.js"></script>
+<script src="angularjs/customer_client.js"></script>
+<script src="angularjs/bootstrap-rating.js"></script>
+<script src="angularjs/bootstrap-rating.min.js"></script>
+<script src="angularjs/header.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<script type="text/javascript">
+function readReviewPic(input) {
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#productReviewPic')
+                .attr('src', e.target.result)
+                .width(120)
+                .height(100);
+            document.getElementById('hiddenReviewPic').value = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readReviewVideo(input) {
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#productReviewVideo')
+                .attr('src', e.target.result)
+                .width(220)
+                .height(100);
+            document.getElementById('hiddenReviewVideo').value = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+	
+function readURLEditPic(input) {
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#editprofilepic')
+                .attr('src', e.target.result)
+                .width(120)
+                .height(100);
+            document.getElementById('hiddeneditimage').value = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURLEditVideo(input) {
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#editprofilevideo')
+                .attr('src', e.target.result)
+                .width(220)
+                .height(100);
+            document.getElementById('hiddeneditvideo').value = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURLProduct(input) {
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#pic')
+                .attr('src', e.target.result)
+                .width(120)
+                .height(100);
+            document.getElementById('hiddenproductimage').value = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+function readURL(input) {
+	        if (input.files && input.files[0]) {
+	   
+	            var reader = new FileReader();
+	   
+	            reader.onload = function (e) {            
+	                $('#profilepic')
+	                    .attr('src', e.target.result)
+	                    .width(270)
+	                    .height(200);
+	                document.getElementById('hiddenimage').value = e.target.result;
+	            };
+
+	            reader.readAsDataURL(input.files[0]);
+	        }
+	    }
+function readURLVideo(input) {
+	
+    if (input.files && input.files[0]) {
+    	
+        var reader = new FileReader();
+
+        reader.onload = function (e) {            
+            $('#profilevideo')
+                .attr('src', e.target.result)
+                .width(270)
+                .height(200);
+            
+            document.getElementById('hiddenvideo').value = e.target.result;
+        };
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<title>Amazon Fresh</title>
+</head>
+
+<body ng-app="amazonfresh">
+	<div class="container-fluid">
+	<div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view = "adminhome"></div>
+     <div ui-view = "ride"></div>
+	</div>
+</body>
+
+</html>

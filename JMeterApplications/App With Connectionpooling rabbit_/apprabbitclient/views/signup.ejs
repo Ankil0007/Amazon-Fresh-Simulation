@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class = "container-fluid" style="background-image: url('/images/headerimage.jpg');">
+  <div class="row">
+  <div class="col-md-2"><br/></div>
+  <div class="col-md-8"><br/><center><img src = "/images/twitter-snow.svg" height ="30px" width = "40px"><center></div>
+  <div class="col-md-2"><br/><h5><a href ="/" class = "mylink">Have an account?Log in >></a></h5></div>
+</div>
+  </div>
+  <br/><br/>
+  <div class="container">
+ 
+  <div class="panel panel-default panelsignup"  style="width: 400px;margin-left:400px">
+     
+    <div class="panel-body" >
+    <h2>Join Twitter today.</h2><br/>
+    <form role="form" action = "/signupnext" method = "POST">
+      <div class="form-group">
+      <input type = "text" class="form-control signupinput" placeholder = "Full Name" name = "fullname" required/>
+      </div>
+      <br/>
+      <div class="form-group">
+      <input type = "email"  class="form-control signupinput"  placeholder = "Email" name = "email" required/><% if(title=='This email is already registered'){ %> <h6 class="text-danger"><strong><%= title %><strong></h6><% } %>
+      </div>
+      <br/>   
+      <div class="form-group">
+      <input type = "password" class="form-control signupinput" placeholder = "Password" name = "password" required/>
+      </div>
+      <br/> 
+       <div class="form-group">
+      <input type = "submit" class="btn btn-info btn-block signupinput" value = "Sign up"/>
+      </div> 
+    </form>
+  </div>
+  <div class="panel-footer" ><h4><small>By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use. Others will be able to find you by email or phone number when provided.</small></h4></div>
+  </div>
+  </div>
+  
+  </body>
+</html>

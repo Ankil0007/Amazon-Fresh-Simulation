@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <script type="text/javascript">
+  $(document).ready(function(){
+	  $("#inputdate").show();
+      $("#inputcustomername").hide();
+      $("#inputbillingid").hide();
+      $('input[name="inputdate"]').prop('required',true);
+	    $('#category').on('change', function() {
+	      if ( this.value == 'date')
+	      {
+		        $("#inputdate").show();
+		        $("#inputcustomername").hide();
+		        $("#inputbillingid").hide();
+		        $('input[name="inputdate"]').prop('required',true);
+		        $('input[name="inputcustomername"]').prop('required',false);
+		        $('input[name="inputbillingid"]').prop('required',false);
+	      }
+	      else if(this.value == 'customer')
+	      {
+	    	    $("#inputdate").hide();
+		        $("#inputcustomername").show();
+		        $("#inputbillingid").hide();
+		        $('input[name="inputdate"]').prop('required',false);
+		        $('input[name="inputcustomername"]').prop('required',true);
+		        $('input[name="inputbillingid"]').prop('required',false);
+	      }
+	      else
+	    	  {
+	    	    $("#inputdate").hide();
+		        $("#inputcustomername").hide();
+		        $("#inputbillingid").show();
+		        $('input[name="inputdate"]').prop('required',false);
+		        $('input[name="inputcustomername"]').prop('required',false);
+		        $('input[name="inputbillingid"]').prop('required',true);
+	    	  }
+	    });
+	});
+
+  </script>
+<div class="row" ng-controller="admin">
+<div class = "col-md-2" >
+ <div class="list-group">
+	 <a ng-click="viewrequests();" class="list-group-item list-group-item-success adminmenu">View Requests</a>
+	 <a ng-click="viewproducts();" class="list-group-item list-group-item-success adminmenu">View Products</a>
+ <a ng-click="viewcustomeraccounts();" class="list-group-item list-group-item-success adminmenu">View Customers</a>
+	 <a ng-click="viewfarmeraccounts();" class="list-group-item list-group-item-success adminmenu">View Farmers</a>
+	 	
+ <a ng-click="statisticsdata();" class="list-group-item list-group-item-success adminmenu">Statistics Data</a>
+	 <a ng-click="viewridedata();" class="list-group-item list-group-item-success adminmenu">View Ride Data</a>
+	 <a ng-click="searchbill();" class="list-group-item list-group-item-success adminmenu">Search Bill</a> 
+  </div>
+</div>
+
+<div class = "col-md-3" >
+
+<form role="form" name="billform">
+    <div class="form-group">
+      <label>Search Bill By</label>
+      <select class="form-control" id="category">
+        <option value="date">Date</option>
+        <option value="customer">Customer Id</option>
+        <option value="billingid">Billing Id</option>
+      </select>
+      </div>
+      <div class="form-group"><input class="form-control" type ="date" ng-model="searchstr" placeholder="enter date" id="inputdate" name="inputdate">
+      </div>
+      
+      <div class="form-group"><input class="form-control" type ="text" ng-model="searchstr" placeholder="enter customer Id" id="inputcustomername" name="inputcustomername">
+      </div>
+      
+      <div class="form-group"><input class="form-control" type ="text" ng-model="searchstr" placeholder="enter billing id" id="inputbillingid" name="inputbillingid">
+      </div>
+      
+      <div class="form-group">
+ <input type="submit" value="Search Bill" class="btn btn-success"  ng-click = "billform.$valid && searchbillby();">
+ </div>
+    </form>
+    
+</div>
+
+<div class = "col-md-7" >
+<modal title="Bill Detail" visible="showBillModal">
+     <div class="panel panel-success">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    Bill No:{{billvalues[0].billing_id}}
+    </div>
+    <div class="panel-body">
+    Billing Date: {{billvalues[0].billing_date}}<br/>
+     Expected Delivery Time: {{billvalues[0].expected_delivery_time}}<br/>
+      
+       Status: {{billvalues[0].status}}<br/>
+       <h3>Customer Details:</h3>
+        First Name: {{billvalues[0].customer_firstname}}<br/>
+         Last Name: {{billvalues[0].customer_lastname}}<br/>
+          Address: {{billvalues[0].customer_address}}<br/>
+          City: {{billvalues[0].customer_city}}<br/>
+          State: {{billvalues[0].customer_state}}<br/>
+          Zip Code: {{billvalues[0].customer_zip_code}}<br/>
+          Phone Number: {{billvalues[0].customer_phone_number}}<br/>
+          
+           <h3>Farmer Details:</h3>
+          First Name: {{billvalues[0].farmer_firstname}}<br/>
+          Last Name: {{billvalues[0].farmer_lastname}}<br/>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="info" ng-repeat = "x in billvalues">
+        <td>{{x.product_name}}</td>
+        <td>{{x.product_price}}</td>
+        <td>{{x.quantity}}</td>
+        <td>{{x.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+  Total Price: {{billvalues[0].total_price}}<br/>
+      </div>
+     </div>   
+  </modal> 
+<div class = "panel panel-success" ng-hide="showMap">
+<div class = "panel-heading">
+Bills
+</div>
+<div class = "panel-body" id="map">
+<ul class="list-group" ng-repeat="(key, x) in bills | groupBy: 'billing_id'">
+<a class="reqlink"  ng-click="showBillDetail(x);">Bill No:{{key}}</a>
+<li class="list-group-item list-group-item-success">
+Customer Name:{{x[0].customer_firstname}}&nbsp;{{x[0].customer_lastname}}<br/>
+Total Price:{{x[0].total_price}}<br/>
+Status:{{x[0].status}}
+</li>
+ </ul>
+
+
+</div>
+
+</div>
+</div>
+
+<h3>{{statusMessage}}</h3>
+</div>
+
+</div>
+
+</div>

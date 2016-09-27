@@ -1,0 +1,35 @@
+
+
+<div ng-controller="admin">
+	<nav class="navbar navbar-default">
+	<ul class='nav'>
+
+  <li>
+    <div class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-menu-hamburger"></span></button>  
+       </a>
+      <img style="vertical-align: middle" src="../img/af-logo-white-trans3.png" alt="AmazonFresh Home">
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+        <li>
+        <a ng-click="viewrequests();" class="navbar-brand headerlink adminmenu"><small>View Requests</small></a>
+	 <a ng-click="viewproducts();" class="navbar-brand headerlink adminmenu"><small>View Products</small></a>
+ <a ng-click="viewcustomeraccounts();" class="navbar-brand headerlink adminmenu"><small>View Customers</small></a>
+	 <a ng-click="viewfarmeraccounts();" class="navbar-brand headerlink adminmenu"><small>View Farmers</small></a>
+	 	
+ <a ng-click="statisticsdata();" class="navbar-brand headerlink adminmenu"><small>Statistics Data</small></a>
+	 <a ng-click="viewridedata();" class="navbar-brand headerlink adminmenu"><small>View Ride Data</small></a>
+	 <a ng-click="searchbill();" class="navbar-brand headerlink adminmenu"><small>Search Bill</small></a>
+       
+        <a class="navbar-brand headerlink adminmenu" ng-click="logout();" ><small>Logout</small></a>.
+        
+        </li>
+      
+      </ul>
+    </div>   
+    </li>
+
+</ul>
+	  
+</div>

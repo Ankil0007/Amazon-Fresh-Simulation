@@ -1,0 +1,22 @@
+<div>
+	<nav class="navbar navbar-default" ng-controller="header">
+	  <div class="container-fluid top-menu">
+	    <div class="navbar-header">
+	      <ul class="nav navbar-nav">
+	      	 <li class="first">
+	             <a class="navbar-brand" href="/"  id="fresh_logo_link">
+			      	<img style="vertical-align: middle" src="../images/af-logo-white-trans3.png" alt="AmazonFresh Home">
+			     </a>
+			     <span class="greeting" id="greeting">
+	                <a class="navbar-brand" ng-click="deleteaccount();" > Delete Account</a>.
+	                <a class="navbar-brand" ng-click="logout();" >Logout</a>.
+	             </span>
+	          </li>
+		      <li class="active">
+	             
+	          </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+</div>

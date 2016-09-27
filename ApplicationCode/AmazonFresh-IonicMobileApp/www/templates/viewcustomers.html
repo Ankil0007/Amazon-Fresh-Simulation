@@ -1,0 +1,104 @@
+<div class="container-fluid">
+<div class="row" ng-controller="admin">
+<div class = "col-md-2" >
+ 
+</div>
+
+<div class = "col-md-3" ng-init = "viewcustomernames();">
+
+<div class = "panel panel-success" ng-hide="customernames">
+<div class = "panel-heading">
+Customers
+</div>
+<div class = "panel-body">
+<ul class="list-group" ng-repeat="x in customers| limitTo:limit">
+<li class="list-group-item list-group-item-success">
+<a class="reqlink"  ng-click="showCustomerDetail(x.customer_id);">{{x.firstname}}&nbsp;{{x.lastname}}</a>
+</li>
+ </ul>
+<button class="btn btn-block btn-success" ng-click="loadmore();">Load More</button>
+
+</div>
+
+</div>
+    
+    
+<h3>{{statusMessage}}</h3>    
+</div>
+
+<div class = "col-md-7" >
+<modal title="Bill Detail" visible="showCustomerModal">
+     <div class="panel panel-success">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    Bill No:{{billvalues[0].billing_id}}
+    </div>
+    <div class="panel-body">
+    Billing Date: {{billvalues[0].billing_date}}<br/>
+     Expected Delivery Time: {{billvalues[0].expected_delivery_time}}<br/>
+      
+       Status: {{billvalues[0].status}}<br/>
+       <h3>Customer Details:</h3>
+        First Name: {{billvalues[0].customer_firstname}}<br/>
+         Last Name: {{billvalues[0].customer_lastname}}<br/>
+          Address: {{billvalues[0].customer_address}}<br/>
+          City: {{billvalues[0].customer_city}}<br/>
+          State: {{billvalues[0].customer_state}}<br/>
+          Zip Code: {{billvalues[0].customer_zip_code}}<br/>
+          Phone Number: {{billvalues[0].customer_phone_number}}<br/>
+          
+           <h3>Farmer Details:</h3>
+          First Name: {{billvalues[0].farmer_firstname}}<br/>
+          Last Name: {{billvalues[0].farmer_lastname}}<br/>
+            <div class="table-responsive" style ="border-radius:10px"> 
+<table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="info" ng-repeat = "x in billvalues">
+        <td>{{x.product_name}}</td>
+        <td>{{x.product_price}}</td>
+        <td>{{x.quantity}}</td>
+        <td>{{x.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  Total Price: {{billvalues[0].total_price}}<br/>
+      </div>
+     </div>   
+  </modal> 
+<div class = "panel panel-success" ng-hide="showMap">
+<div class = "panel-heading">
+Bills
+</div>
+<div class = "panel-body" id="map">
+<ul class="list-group" ng-repeat="(key, x) in bills | groupBy: 'billing_id'">
+Bill No:{{key}}
+<li class="list-group-item list-group-item-success">
+Total Price:{{x[0].total_price}}<br/>
+Status:{{x[0].status}}
+ <div class="form-group">
+ <input type="submit" value="Bill Details" class="btn btn-success"  ng-click = "showCustomerFullDetail(x);">
+  <input type="submit" value="Customer Review" class="btn btn-success"  ng-click = "showCustomerReview(x);">
+ </div>
+
+</li>
+ </ul>
+
+
+</div>
+
+</div>
+</div>
+{{statusMessageCustomerBill}}
+</div>
+
+</div>
+
+</div>

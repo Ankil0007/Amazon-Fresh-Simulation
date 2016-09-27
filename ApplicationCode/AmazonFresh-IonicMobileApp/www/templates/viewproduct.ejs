@@ -1,0 +1,91 @@
+	<div class="item-border col-xs-12">
+	<div class="rows">
+	    <div class="col-xs-12 pull-left">
+	    <br/>
+	    	<img class="image product-image-size" src="{{photo}}"/>
+	    </div>
+	    <div class="col-xs-12 pull-left">
+		    <div class="buy"><h5>{{product_name}}</h5></div>
+		    <div class="buyline farmer-link"><a class="cursorpointer" ng-click="visitFarmerFromViewProduct(farmer_id)">Visit Farmer</a></div>
+			<div class="bold price"><h5>${{updatedproduct_price | twoDecimal}}</h5>
+			 <input type="hidden" value="{{updatedproduct_price | twoDecimal}}" id="price_{{product_id}}"/>
+			</div>
+			<div class="qty bold">
+			    Qty: 
+			    <select ng-options="q.qtyVal for q in qtyArray1" ng-model="quantity"></select>
+		    </div>
+		    <div class="add">
+			    <input type="button" class="ff-btn" ng-click="addToCart(product_id,product_name,farmer_id)" value="Add to cart"/>
+		    </div>
+		    <div class="messaging">
+	                    <p>Sold by <strong>
+	                    <a href="/">AmazonFresh</a></strong>. Shipped by <strong>AmazonFresh</strong>.</p>
+		    </div>
+		</div>
+	</div>
+	<div class="rows">
+		<div class="col-xs-12">
+		<br/>
+			<div class="panel panel-info">
+				<div class="panel-heading rating-title"><b>Customer Reviews</b></div>
+				<div class="panel-body ng-binding">
+				<div class="col-xs-12 review-border"  ng-repeat="r in reviews" repeat-end="onEnd()">
+					<div class="col-xs-12 rating-div">
+						<div class="rating-style"><input type="hidden" name="rating_field" id="rating_{{r.customer_id}}" class="rating1" value="{{r.rating}}" data-readonly/></div>
+				    	by <span class="rating-title">{{r.firstname}} {{r.lastname}}</span>
+				    	<div>
+							<h6>{{r.review}}
+							</h6>
+						</div>
+				    </div>
+					
+					<div class="col-xs-12" ng-if="r.image">
+							<div>
+								<h6>Customer Images</h6>
+								<img id="" src="{{r.image}}"
+									alt="/images/uploadpic.png" style="height: 150px; width: 150px;" /><br />
+							</div>
+							<input type="hidden" name="hiddenReviewPic" id="hiddenReviewPic" />
+					</div>
+					<div class="col-xs-12"  ng-if="r.video">
+						<div>
+							<h6>Customer videos</h6>
+							<video id="productReviewVideo_{{r.customer_id}}_show" class="videoInput" style="height: 200px; width: 150px;"
+								controls src="">
+							</video>
+							<input id="productReviewVideo_{{r.customer_id}}" type="hidden" value="{{r.video}}" class="videoHiddenInput"/>
+						</div>
+					</div>					
+					</div>
+				</div>
+			</div>	
+		    </div>						    	
+		    </div>
+		</div>
+
+		<modal visible="farmerdetailsmodal" title="Farmer Details" id="farmerModal">
+			<div class="panel panel-success" style="border:2px solid darkgreen" ng-hide="farmerinfo">
+	      <div class="panel-heading" style ="border-radius:10px"> 
+	      <h5><center><strong>Farmer's Information</strong></center></h5><hr style="backgroiund-color:black">
+	      <h6><strong>Name: {{farmerdetails.firstname}} &nbsp;&nbsp; {{farmerdetails.lastname}}</strong></h6>
+	      <h6><strong>Address: {{farmerdetails.address}}</strong></h6>
+	       <h6><strong>City: {{farmerdetails.city}}</strong></h6>
+	      <h6><strong>State: {{farmerdetails.state}}</strong></h6>
+	      <h6><strong>Zip Code: {{farmerdetails.zip_code}}</strong></h6>
+	      <h6><strong>Phone Number: {{farmerdetails.phone_number}}</strong></h6>
+	     <h6> <strong>Email: {{farmerdetails.email}}</strong></h6>
+	      <h6><strong>Description : {{farmerdescription.description}}</strong> </h6>
+	      </div>
+	      <div class="panel-body" style ="border-radius:10px"> 
+	      <div class="row">
+	      <div class="col-xs-6" >
+	      <img id="profilepic" data-ng-src = "{{farmerdescription.image}}" 
+							style="height: 200px; width: 220px;" /></div>
+		<div class="col-xs-6" >
+		  <video id="profilevideo" style="height: 200px; width: 220px;" style="border: 2px solid darkgreen;"
+						controls data-ng-src={{farmerdescription.video}}></div>
+					</video>	
+	      </div>
+	      </div>
+ 	</div>
+		</modal>

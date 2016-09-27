@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+   
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <link rel='stylesheet' href='/stylesheets/style.css' />
+ <script  type='text/javascript' class='jsbin' src="/Javascripts/previewprofilepic.js"></script>
+   <script type = "text/javascript">
+   
+   </script>
+  </head>
+  <body>
+       <div class = "container-fluid" style="background-image: url('/images/headerimage.jpg');">
+  <div class="row">
+  <div class="col-md-2"><br/></div>
+  <div class="col-md-8"><br/><center><img src = "/images/twitter-snow.svg" height ="30px" width = "40px"><center></div>
+  <div class="col-md-2"></div>
+</div>
+  </div>
+  <br/><br/>
+<div class="container">
+   <div class="panel panel-default panelsignup"  style="width: 400px;margin-left:100px">
+     
+    <div class="panel-body" >
+    <h2>Add a photo.</h2><br/>
+    <form role="form" action = "/signuppicuploaded" method = "POST">
+      <div class="form-group">
+      <input type="file"  accept="image/*" value = "Upload profilepic" class="btn btn-info btn-block signupinput" name = "profilepic" onchange="readURL(this)">
+      </div>
+      <div >
+      <img id="profilepic" src="/images/uploadpic.png" alt="/images/uploadpic.png" style ="height:300px;width:270px;" /><br/>
+      </div>
+      <br/>
+       <input type = "hidden" name = "hiddendata" id ="hiddendata"/>
+       <div class="form-group">
+       <input type="submit" class="btn btn-info btn-block signupinput" value = "Next">
+      </div>
+      </form>
+      <form action = "\signuppicuploaded" method   = "POST">
+<a><input type = "submit" class="btn btn-default myskip" value = "skip>>"></a>
+</form>
+      </div>
+      </div>
+      </div>
+  </body>
+</html>

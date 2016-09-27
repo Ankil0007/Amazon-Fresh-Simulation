@@ -1,0 +1,189 @@
+.ff-personal{height:195px;width:281px;}
+.ff-personal-header{background-color: #0084B4 !important;width:280px;height: 96px}
+.ff-ph-border{border-radius:4px 4px 0 0;border: 1px solid #0084B4 !important;}
+.ff-user-box-border-small {
+border: 3px solid #fff;border-radius:7px}
+.ff-profile-pic-small {
+    left:6%;
+    top:34%;
+    position: absolute;
+    transition: bottom .3s;
+    z-index: 3;
+    height:72px;width:72px;background-color: #0084B4 !important;
+    /* background-image: url(../images/pic.png); */
+}
+.loadMoreBtn{width:30%}
+.billNo{font-weight:bold;text-decoration: underline;}
+.billNo:hover{cursor: pointer}
+.ff-profile-pic-small img{
+	height:125px;width:125px;
+    left:-43%;
+    top:-42%;
+    position: absolute;
+    z-index: 4;
+    /* background-image: url(../images/pic.png); */
+}
+
+.ff-btn-div{left:60%;top:7%;position: relative;}
+
+.a-native-dropdown{display: inline;
+font-weight: normal;font-size: 14px}
+
+.ff-btn
+{
+	background-color:#669900;
+	border: 1px solid #1da1f2;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+}
+
+.default-img{
+	width: 48px;
+    height: 48px;
+    border-radius: 5px;
+}
+
+.white-bg{background-color: #fff;}
+.col-md-3,.col-md-6{padding: 5px !important;}
+.middle-div{padding:10px;}
+.bottom-space{margin-bottom: 7px;}
+
+.box-border {
+    border: 1px solid #e1e8ed;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom:none !important;
+	padding-bottom: 0px;
+	border-radius:6px;
+}
+
+.product_div{margin-right:10px;margin-bottom:10px;width:23% !important}
+.product_div:hover{cursor:pointer}
+.image-size{height:134px;width:134px}
+.item-div{padding:0px 10px;}
+ul.no-underline>li>span>a{text-decoration: none !important}
+ul.no-underline>li:hover{text-decoration: underline; !important}
+.item-border{border: 1px solid #eee;
+    background-color: #fff}
+.review-border{border-bottom: 1px solid #eee;
+    background-color: #fff;padding-bottom: 10px;}
+.product-image-size{width:300px;height: 300px;float: left}
+.buy h1{color:#000;margin-bottom:10px;font-size: 20px}
+.byline {
+    font-size:16px;margin-bottom:25px
+}
+.buy-desc{font-size: 16px;margin-bottom: 10px}
+.qty{font-size: 16px;margin-bottom: 30px}
+
+.buyline a{
+	
+}
+.glyphicon-ok{color:green}
+.confirmation_title{margin-bottom: 30px}
+.cart_div{background-color:#F3F3F3}
+.center{text-align: center;}
+.cart-item{color:#0066C0;font-weight:bold;padding-left: 10px;word-break:break-all}
+.cart-item:hover{color:#C45500;cursor: pointer;}
+.checkout-btn{width: 80%}
+.checkout-div{padding-top: 10px}
+.add{margin-bottom: 10px}
+.item-inner-padding{padding:10px}
+.font-17{font-size: 17px}
+.item-side-padding{padding:0px 10px}
+
+.price{color:#B12704;font-weight: bold}
+.item-details{padding-left:10%}
+.navbar{margin-bottom: 0px !important;border-color:#fff !important; background-image: none !important; } 
+.navbar-default{border-color:#fff !important; background-image: none !important;background-color: #373E42}
+.nav-padding{padding-left:32px !important;}
+.glyphicon-remove:hover{color:black;cursor: pointer;}
+.glyphicon-remove{color:red;}
+.glyphicon-search:hover{color:#99CC33 !important;cursor: pointer !important;}
+/* .user-menu{border-bottom:1px solid #E1E8ED;} */
+.navbar-nav>li>a {
+    padding-top: 5px !important;
+    padding-bottom: 0px !important;
+}
+
+.search-input{border:1px solid #E1E8ED!important;border-radius:15px !important;background-color: #F5F8FA !important;width:100%}
+.search-btn{border-left: none;border-radius:15px !important}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+.farmer-link a{color:#669900 !important; text-decoration: underline;}
+.messaging a{color:#669900 !important; text-decoration: underline;}
+.messaging{font-size: 12px}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0%;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+li.li-space{padding-right: 15px}
+#rating_field:hover{cursor: pointer}
+.rating-div{margin:15px 0px;}
+.rating-title{color: #C60 !important;
+font-size: 12px !important;}
+.rating-style{font-size: 20px !important;}
+.payment_stripsbackground {
+	height:150px;
+	width:1100px;
+	margin-top:30px;
+	margin-left:auto;
+	margin-right:auto;
+   background: 
+  /* On "top" */
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 0px,
+    #e6e6e6 5px,
+    #FFFFFF 5px
+  ),
+  /* on "bottom" */
+  linear-gradient(
+    to bottom,
+    #e6e6e6,
+    #FFFFFF
+  );
+}
+
+.review-modal{
+    display: block !important; /* I added this to see the modal, you don't need this */
+}
+/* Important part */
+.review-modal-dialog{
+    overflow-y: initial !important
+}
+
+.review-modal-body{
+    height: 500px;
+    overflow-y: auto;
+}
+
+.hidden{display: none}
+
+.cursorpointer:hover{cursor:pointer}

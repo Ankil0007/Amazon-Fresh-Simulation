@@ -1,0 +1,195 @@
+<div class="container-fluid" ng-controller="farmer">
+
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-success"  style="border:2px solid darkgreen">
+      <div class="panel-heading" style ="border-radius:10px"> 
+      <h5><center><strong>Farmer's Information</strong></center></h5><hr style="backgroiund-color:black">
+      <h6><strong>Name: {{farmerdetails.firstname}} &nbsp;&nbsp; {{farmerdetails.lastname}}</strong></h6>
+      <h6><strong>Address: {{farmerdetails.address}}</strong></h6>
+       <h6><strong>City: {{farmerdetails.city}}</strong></h6>
+      <h6><strong>State: {{farmerdetails.state}}</strong></h6>
+      <h6><strong>Zip Code: {{farmerdetails.zip_code}}</strong></h6>
+      <h6><strong>Phone Number: {{farmerdetails.phone_number}}</strong></h6>
+     <h6> <strong>Email: {{farmerdetails.email}}</strong></h6>
+      <h6><strong>Description : {{farmerdescription.description}}</strong> <a class="link" ng-click="editProfile();"><span class="glyphicon glyphicon-pencil"></span>Edit</a></h6>
+      </div>
+   
+      <modal title="Edit Profile" visible="showProfile">
+    
+    <form role="form">
+      <div class="form-group"> 
+        <input type= "text" class="form-control" value = "{{$parent.firstName}}" id="firstName" placeholder="enter first name" ng-required="true">
+      </div>  
+      <div class="form-group"> 
+        <input type= "text" id="lastName" class="form-control" value = "{{$parent.lastName}}" placeholder="enter last name" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <input type= "text" id="address" class="form-control" value = "{{$parent.address}}" placeholder="enter address" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <input type= "text" id="city" class="form-control" value = "{{$parent.city}}" placeholder="enter city" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <input type= "text" id="state" class="form-control" value = "{{$parent.state}}" placeholder="enter state" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <input type= "text" id="zipCode" class="form-control" value = "{{$parent.zipCode}}" placeholder="enter zipcode" ng-required="true">
+      </div>
+       <div class="form-group"> 
+        <input type= "text" id="phoneNumber" class="form-control" value = "{{$parent.phoneNumber}}" placeholder="enter phone number"  ng-required="true">
+      </div>  
+      <div class="form-group"> 
+        <textarea type= "text" id="description" class="form-control" placeholder="enter description" ng-required="true">{{$parent.description}}</textarea>
+      </div>   
+      
+      <div class="row">
+      <div class="col-md-6"  >
+      <h3>Edit a photo.</h3>
+					<input type="file" accept="image/*" value="Upload profilepic"
+						class="btn" name="editprofilepic" onchange="readURLEditPic(this)">
+					<br />
+      <img id="editprofilepic" data-ng-src = "{{$parent.image}}" 
+						style="height: 100px; width: 120px;" />
+				<input type="hidden" name="hiddeneditimage" id="hiddeneditimage" />
+				</div>
+	<div class="col-md-6" >
+	<h3>Edit a Video.</h3>
+				<input type="file" accept="video/*" value="Upload profilevid"
+					class="btn" name="editprofilevideo" 
+					onchange="readURLEditVideo(this)"><br/>
+					
+	  <video id="editprofilevideo" style="height: 100px; width: 220px;" style="border: 2px solid darkgreen;"
+					controls>
+				</video>	
+				</div>
+				<input type="hidden" name="hiddeneditvideo" id="hiddeneditvideo" />
+      </div>
+      
+      <button type="submit" class="btn btn-success btn-block" ng-click = "$parent.savechanges();">Save Changes</button>
+    </form>
+ 
+  </modal>
+      
+      <div class="panel-body" style ="border-radius:10px"> 
+      <div class="row">
+      <div class="col-md-6" >
+      <img id="profilepic" data-ng-src = "{{farmerdescription.image}}" 
+						style="height: 200px; width: 220px;" /></div>
+	<div class="col-md-6" >
+	  <video id="profilevideo" style="height: 200px; width: 220px;" style="border: 2px solid darkgreen;"
+					controls data-ng-src={{farmerdescription.video}}></div>
+				</video>	
+      </div>
+      </div>
+ </div>
+</div>
+<div class="col-md-6">
+   <modal title="Edit Product" visible="showProduct">
+    <form role="form">
+      <div class="form-group"> 
+       <center><img id="productpic" data-ng-src = "{{$parent.productimage}}" 
+						style="height: 100px; width: 120px;" /></div></center>
+      <div class="form-group"> 
+        <input type= "text" id="proname" class="form-control" value = "{{$parent.product.product_name}}"   placeholder="enter product name" ng-required="true">
+      </div>
+      <div class="form-group"> 
+        <input type= "text" id="proprice" class="form-control" value = "{{$parent.product.product_price}}" ng-pattern="/^[0-9]*$/" placeholder="enter product price" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <textarea cols="50" id="prodesc" rows="5"class="form-control" placeholder="enter product description" ng-required="true">{{$parent.product.product_description}}</textarea>
+      </div> 
+      <button type="submit" class="btn btn-success btn-block" ng-click = "$parent.saveproductchanges($parent.product);">Save Changes</button>
+    </form> 
+  </modal>
+  
+  <modal title="Add Product" visible="addProductModal">
+    <form role="form">
+      <div class="form-group"> 
+       <center><h4>Add Product photo.</h4>
+       <input type="file" accept="image/*" value="Upload productpic"
+						class="btn btn-success" name="productpicture" onchange="readURLProduct(this)" ng-model="propic" ng-required="true">
+					<br />
+					
+		<div>
+					<img id="pic" name="pic" src="/images/uploadpic.png"
+						alt="/images/uploadpic.png" style="height: 100px; width: 120px;" /><br />
+				</div>
+				<input type="hidden" name="hiddenproductimage" id="hiddenproductimage"/>
+      </div></center>
+      <div class="form-group"> 
+        <input type= "text" class="form-control" ng-model="$parent.product_name" placeholder="enter product name" ng-required="true">
+      </div> 
+      <div class="form-group"> 
+        <textarea cols="50" rows="5"class="form-control" placeholder="enter product description" ng-model="$parent.product_description" ng-required="true"></textarea>
+      </div>     
+       <div class="form-group"> 
+        <input type= "text" class="form-control"  ng-model="$parent.product_price" placeholder="enter product price" ng-required="true">
+      </div> 
+       <div class="form-group"> 
+        <input type= "text" class="form-control"  ng-model="$parent.product_quantity" ng-pattern="/^[0-9]*$/" placeholder="enter product quantity" ng-required="true">
+      </div> 
+        
+      <button type="submit" class="btn btn-success btn-block" ng-click = "$parent.addproductdetail();">Save Changes</button>
+    </form> 
+  </modal>
+  
+  
+<div class="panel panel-success" ng-init="loadProductDetails()" style="border:2px solid darkgreen">
+      <div class="panel-heading" style ="border-radius:10px"> 
+      <h5><strong>Farmer's Products List</strong> <a class="link" ng-click="addProduct();"><span class="glyphicon glyphicon-plus"></span>Add Product</a></h6><hr style="backgroiund-color:black"></h5>
+
+      </div>
+      <div class="panel-body" style ="border-radius:10px"> 
+      
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Edit</th>
+        <th>Status</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="info" ng-repeat = "x in productslist">
+        <td ng-click = "displayProduct(x.product_id);" class="reqlink">{{x.product_name}}</td>
+        <td>{{x.product_price}}</td>
+        <td>{{x.product_quantity}}</td>
+        <td> <a class="link" ng-if="x.approved === 1 || x.approved === 0"  ng-click="editProduct(x.product_id);"><span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
+        <td ng-if="x.approved === 0"> Pending Approval</td>
+        <td ng-if="x.approved === 1"> Approved</td>
+        <td ng-if="x.approved === 2">Rejected</td>
+        <td ng-if="x.approved === 3"> Deleted</td>
+         <td> <a class="link" ng-if="x.approved === 1 || x.approved === 0" ng-click="deleteProduct(x.product_id);"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+   {{statusMessage}}
+  <modal title="Product Info" visible="displayProductInfo">
+    <form role="form">
+      <div class="form-group"> 
+       <center><img id="displayproductpic" data-ng-src = "{{$parent.productimage}}" 
+						style="height: 100px; width: 120px;" /></div></center>
+      <div class="form-group"> 
+        <input type= "text" id="displayproname" class="form-control" value = "{{$parent.product.product_name}}"  readonly="true">
+      </div>
+      <div class="form-group"> 
+        <input type= "text" id="displayproprice" class="form-control" value = "{{$parent.product.product_price}}" readonly="true">
+      </div> 
+      <div class="form-group"> 
+        <textarea cols="50" id="displayprodesc" rows="5"class="form-control" readonly="true">{{$parent.product.product_description}}</textarea>
+      </div> 
+     
+    </form> 
+  </modal>
+      </div>
+    
+ </div>
+  
+</div>
+</div>
+</div>

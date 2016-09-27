@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Login to Twitter</p>
+    <div>
+    <form action = "/login/loginnext" method = "POST">
+    <input type = "text" placeholder = "Enter Email id or Username" name = "loginid" required/>
+    <input type = "password" placeholder = "Password" name = "loginpassword" required/>
+    <input type = "submit" value = "Login"/>
+    </form>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<div class="container-fluid">
+	<div class="row" ng-controller="admin">
+	<div class = "col-md-2" >
+	 <div class="list-group">
+	 
+	 
+  </div>
+	</div>
+	
+	
+	<div class = "col-md-3" ng-init="initFarmerApprovals()">
+	<div class="panel panel-info">
+	<div class="panel-heading">Farmers Pending Approvals</div>
+	<div class="panel-body">
+		 <ul class="list-group">
+<li class="list-group-item list-group-item-info" ng-hide="hideFarmer" ng-repeat="x in listFarmerApprovals| limitTo:limitfarmers"><a class="reqlink"  ng-click="showFarmerDetail($index);">{{x.firstname}}&nbsp;&nbsp;{{x.lastname}}</a><br/><center>
+<button type="button" class="btn btn-default btn-sm btnaccept" ng-click="approveFarmer(x.farmer_id);"><span class="glyphicon glyphicon-ok"></span>Approve</button>
+	 <button type="button" class="btn btn-default btn-sm btnreject" ng-click="rejectFarmer(x.farmer_id);"><span class="glyphicon glyphicon-remove"></span>Reject</button></center></li>
+	 <button class="btn btn-block btn-success" ng-click="loadmorefarmers();" ng-hide="loadf">Load More</button>
+	 </ul>
+	  <p >{{statusMessageFarmer}}</p>
+	   
+	   </div>
+	   </div>
+	</div>
+	
+	<div class = "col-md-3" ng-init="initCustomerApprovals()">
+	<div class="panel panel-info">
+	<div class="panel-heading">Customers' Pending Approvals</div>
+	<div class="panel-body">
+		<ul class="list-group">
+	<li class="list-group-item list-group-item-info" ng-hide="hideCustomer" ng-repeat="x in listCustomerApprovals|limitTo:limitcustomers"><a class="reqlink"  ng-click="showCustomerDetail($index);">{{x.firstname}}&nbsp;&nbsp;{{x.lastname}}</a><br/><center>
+	<button type="button" class="btn btn-default btn-sm btnaccept" ng-click="approveCustomer(x.customer_id);"><span class="glyphicon glyphicon-ok"></span>Approve</button>
+	 <button type="button" class="btn btn-default btn-sm btnreject" ng-click="rejectCustomer(x.customer_id);"><span class="glyphicon glyphicon-remove"></span>Reject</button></center></li>
+	  <button class="btn btn-block btn-success" ng-click="loadmorecustomers();" ng-hide="loadc">Load More</button>
+	 </ul>
+	 <p >{{statusMessageCustomer}}</p>
+	
+	 </div>
+	 </div>
+	</div>
+	
+	<div class = "col-md-3" ng-init="initProductApprovals()">
+	<div class="panel panel-info">
+	<div class="panel-heading">Products' Pending Approvals</div>
+	<div class="panel-body">
+		 <ul class="list-group">
+	 <li class="list-group-item list-group-item-info" ng-hide="hideProduct" ng-repeat="x in listProductApprovals|limitTo:limitproducts"><a ng-click="showProductDetail($index);" class="reqlink" >{{x.product_name}}</a><br/><center>
+	 <button type="button" class="btn btn-default btn-sm btnaccept" ng-click="approveProduct(x.product_id);"><span class="glyphicon glyphicon-ok"></span>Approve</button>
+	 <button type="button" class="btn btn-default btn-sm btnreject" ng-click="rejectProduct(x.product_id);"><span class="glyphicon glyphicon-remove"></span>Reject</button></center></li>
+	 	  <button class="btn btn-block btn-success" ng-click="loadmoreproducts();" ng-hide="loadp">Load More</button>
+	 </ul>
+	 <p >{{statusMessageProduct}}</p>
+	  </div>
+	  </div>
+	</div>
+	
+	<modal title="Farmer Information" visible="showFarmerModal">
+     
+     <div class="panel panel-info">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    {{farmerfirstname}} &nbsp;{{farmerlastname}}
+    </div>
+    <div class="panel-body">
+    Address: {{farmeraddress}}<br/>
+    City: {{farmercity}}<br/>
+    State: {{farmerstate}}<br/>
+    Zipcode: {{farmerzipcode}}<br/>
+    Email: {{farmeremail}}<br/>
+    
+      </div>
+     </div>   
+  </modal> 
+  
+  <modal title="Customer Information" visible="showCustomerModal">
+     
+     <div class="panel panel-info">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    {{customerfirstname}} &nbsp;{{customerlastname}}
+    </div>
+    <div class="panel-body">
+    Address: {{customeraddress}}<br/>
+    City: {{customercity}}<br/>
+    State: {{customerstate}}<br/>
+    Zipcode: {{customerzipcode}}<br/>
+    Email: {{customeremail}}<br/>
+    
+      </div>
+     </div>   
+  </modal> 
+  
+  <modal title="Product Information" visible="showProductModal">
+     
+     <div class="panel panel-info">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    {{productname}}
+    </div>
+    <div class="panel-body">
+    Farmer Name: {{farmerfirstname}}&nbsp;{{farmerlastname}}<br/>
+    Price: {{productprice}}<br/>
+    Description: {{productdescription}}<br/>
+    Quantity: {{productquantity}}<br/>
+   
+    
+      </div>
+     </div>   
+  </modal> 
+	
+	</div>
+</div>

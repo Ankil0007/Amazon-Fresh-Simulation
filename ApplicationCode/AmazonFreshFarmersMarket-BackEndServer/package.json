@@ -1,0 +1,16 @@
+{
+  "name": "AmazonFreshFarmersMarket-BackEndServer",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "collections": "^3.0.0",
+    "connect-mongo": "^1.1.0",
+    "ejs": "*",
+    "express": "^3.2.6",
+    "express-session": "^1.13.0",
+    "mongo": "^0.1.0"
+  }
+}

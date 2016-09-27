@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   <div class = "container-fluid" style="background-image: url('/images/headerimage.jpg');">
+  <div class="row">
+  <div class="col-md-2"><br/></div>
+  <div class="col-md-8"><br/><center><img src = "/images/twitter-snow.svg" height ="30px" width = "40px"><center></div>
+  <div class="col-md-2"><br/><h5><a href ="/" class = "mylink">Have an account?Log in >></a></h5></div>
+</div>
+  </div>
+  <br/><br/>
+  <div class="container">
+ 
+  <div class="panel panel-default panelsignup"  style="width: 400px;margin-left:400px">
+     
+    <div class="panel-body" >
+    <h2>Choose a username.</h2><br/>
+    <form role="form" action = "/signuppic" method = "POST">
+      <div class="form-group">
+       <input type = "text" class="form-control signupinput" placeholder = "Choose User Name" name = "username" required/>
+       <% if(title=='This username is already taken!'){ %> <h6 class="text-danger"><strong><%= title %><strong></h6><% } %>
+      </div>
+       <div class="form-group">
+       <input type = "submit" class="btn btn-info btn-block signupinput"  value  = "Next"/>
+      </div>
+      </form>
+      </div>
+      </div>
+      </div>
+  </body>
+</html>

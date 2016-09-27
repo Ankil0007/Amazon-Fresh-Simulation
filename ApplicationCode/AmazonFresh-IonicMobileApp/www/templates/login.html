@@ -1,0 +1,47 @@
+<div class="container-fluid">
+	<div class="row" ng-controller="login" >
+		<div class="col-md-4"></div>
+
+		<div class="col-md-4 login-top">
+			<h3>Sign in</h3>
+			<br />
+
+			<form role="form" name="loginform">
+				<div class="form-group">
+					<Label>Enter email</Label>
+					<input type="email" name="email" placeholder="enter email id"
+						class="form-control input-lg" ng-model="email" ng-required="true">
+				</div>
+				<div class="form-group">
+					<Label>Password</Label>
+					<input type="password" name="password" placeholder="enter password"
+						class="form-control input-lg" ng-model="password" ng-required="true">
+				</div>
+
+				 <label class="radio-inline">
+				      <input type="radio" name="category" value = "customer" id = "catcustomer" checked="checked">Customer
+				    </label>
+				    <label class="radio-inline">
+				      <input type="radio" name="category" value="farmer" id = "catfarmer">Farmer
+				    </label>
+				<div class="alert alert-danger" ng-hide="invalid_login">
+					<strong>{{statusMessage}}</strong>
+				</div>
+<br/>
+<br/>
+
+				<div class="form-group">
+					<input type="submit" class="btn btn-success btn-block"
+						ng-click="loginform.$valid && login();" value="Sign In" />
+				</div>
+			</form>
+		</div>
+
+		<div class="col-md-4">
+	
+
+		</div>
+
+	</div>
+
+</div>

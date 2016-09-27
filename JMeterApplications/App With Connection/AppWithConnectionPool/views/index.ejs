@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type = "text/javascript" src = "/Angularjs/angular.min.js"></script>
+    <script type = "text/javascript" src = "/Angularjs/indexangular.js"></script>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-app="index" ng-controller = "index">
+  <div class = "container-fluid" style="background-image: url('/images/headerimage.jpg');">
+  <div class="row">
+  <div class="col-md-3"><br/><img src = "/images/twitter-snow.svg" height ="40px" width = "50px"></div>
+  <div class="col-md-6">
+   <div class="h3-white">
+    <h2>See what's happening right now.</h2>      
+  </div>
+  </div>
+  <div class="col-md-3">
+  <br/>
+  <div class="row">
+  	<button type="button" class="btn btn-default mybutton"  ng-click = "signuphome();">Sign up</button>
+  	<button type="button" class="btn btn-default mybutton" ng-click="loginhome();">Log in</button>
+  </div>
+  </div>
+  </div>
+  <modal title="Log in to Twitter" visible="showModal">
+  <center><img src = "/images/favicon.ico"/><br/><center>
+  <div>
+    <form role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" name="email" placeholder="enter email or username " ng-model = "$parent.email" required/>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="password" ng-model="$parent.password" required/>
+      </div>    
+      <button class="btn btn-info btn-block" ng-click = "checklogin();">Log in</button>
+    </form>
+    </div>
+     <div class="alert alert-info" ng-hide="invalid_login">
+  
+ <strong>Incorrect username or password</strong>
+</div>
+ <div class="alert alert-info" ng-hide="unexpected_error">
+ 
+ <strong>Incorrect username or password</strong>
+</div>
+  </modal>
+  </div>
+  <div style = "background:#F5F8FA;">
+  <br/>
+   <br/>
+    <br/>
+    </div>
+   <div class = "container-fluid" style="background:#F5F8FA;height:500px;">
+  
+    <div class="panel panel-default"  style="width: 600px;margin-left:330px">
+     
+    <div class="panel-body" >
+    <h3>Log in to Twitter</h3>
+    <form role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" name="email" placeholder="enter email or username " ng-model = "email" required/>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="password" ng-model="password" required/>
+      </div>    
+      <button class="btn btn-info" ng-click = "checklogin();">Log in</button>
+    </form>
+    
+     </div>
+     <div class="alert alert-info" ng-hide="invalid_login">
+
+ <strong>Incorrect username or password</strong>
+</div>
+ <div class="alert alert-info" ng-hide="unexpected_error">
+ 
+ <strong>Incorrect username or password</strong>
+</div>
+    <div class="panel-footer">
+     <h4><small>New to Twitter?<a href = "/signup">Sign up now >></a> </small></h4>
+    </div>
+  </div>
+
+   </div>
+  
+  
+  </body>
+  
+   
+  </body>
+</html>

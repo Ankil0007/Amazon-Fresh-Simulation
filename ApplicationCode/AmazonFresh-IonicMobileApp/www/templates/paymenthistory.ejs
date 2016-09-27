@@ -1,0 +1,237 @@
+<div class="col-md-2"></div>
+<div class = "col-md-8"  ng-controller="paymenthistory" ng-init="loadBillData();">
+
+<modal title="Bill Detail" visible="showBillModal">
+     <div class="panel panel-success">
+      <div class="panel-heading" style ="border-radius:10px"> 
+    Bill No:{{billvalues[0].billing_id}}
+    </div>
+    <div class="panel-body">
+    Billing Date: {{billvalues[0].billing_date}}<br/>
+     Expected Delivery Time: {{billvalues[0].expected_delivery_time}}<br/>
+      
+       Status: {{billvalues[0].status}}<br/>
+       <br/>
+       
+       <h3>Customer Details:</h3>
+        First Name: {{billvalues[0].customer_firstname}}<br/>
+         Last Name: {{billvalues[0].customer_lastname}}<br/>
+          Address: {{billvalues[0].customer_address}}<br/>
+          City: {{billvalues[0].customer_city}}<br/>
+          State: {{billvalues[0].customer_state}}<br/>
+          Zip Code: {{billvalues[0].customer_zip_code}}<br/>
+          Phone Number: {{billvalues[0].customer_phone_number}}<br/>
+          
+           <h3>Farmer Details:</h3>
+          First Name: {{billvalues[0].farmer_firstname}}<br/>
+          Last Name: {{billvalues[0].farmer_lastname}}<br/>
+            <div class="table-responsive" style ="border-radius:10px"> 
+<table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Total Price</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat = "x in billvalues">
+      <tr class="info">
+        <td>{{x.product_name}}</td>
+        <td>{{x.product_price}}</td>
+        <td>{{x.quantity}}</td>
+        <td>{{x.product_price*x.quantity | twoDecimal}}</td>
+        <td><input type="button" class="btn btn-default" value="Review Product" ng-click="reviewProduct(x.product_id)"/></td>
+      </tr>
+      <tr class="hidden" id="productReviewTR_{{x.product_id}}">
+      	<td colspan="5"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  Total Price: {{billvalues[0].total_price}}<br/>
+      </div>
+     </div>   
+  </modal>
+  <br/><br/>
+<div class = "panel panel-success" ng-hide="showMap">
+<div class = "panel-heading">
+Purchase History
+</div>
+<div class = "panel-body" id="map" style="width:100%">
+
+<ul class="list-group" ng-repeat="(key, x) in bills[0] | groupBy: 'billing_id'" repeat-end="onBillEnd()">
+<span ng-click="showBillDetail(x,key);" class="billNo">Bill No:{{key}}</span>
+<li class="list-group-item list-group-item-success">
+Customer Name:{{x[0].customer_firstname}}&nbsp;{{x[0].customer_lastname}}<br/>
+Total Price:{{x[0].total_price}}<br/>
+Status:{{x[0].status}}
+<div ng-if="x[0].status=='Intransit'"><br/>
+	<div id="{{x[0].billing_id}}_map" class="map_class" style="width:100%;height:400px;"></div>
+	<input type="hidden" id="{{x[0].billing_id}}_lat" class="lat" value="{{x[0].current_latitude}}"/>
+	<input type="hidden" id="{{x[0].billing_id}}_lon" class="lon" value="{{x[0].current_longitude}}"/>
+</div>
+<!-- <div>
+	<input type="hidden" id="{{key}}_lat" value="{{x[0].Lat}}"/>
+	<input type="hidden" id="{{key}}_Lon" value="{{x[0].Long}}"/>
+	<div id="map_{{$index}}" class="{{x[0].status}}" style="width: 250px;"></div>
+</div> -->
+</li>
+ </ul>
+{{statusMessage}}
+<div>
+	<input type="hidden" id="{{key}}_lat" value="{{x[0].Lat}}"/>
+	<input type="hidden" id="{{key}}_Lon" value="{{x[0].Long}}"/>
+	<div id="map_1" class="" style="width:100%;"></div>
+</div>
+</div>
+
+<div class="col-md-2"></div>
+
+
+<div id="showProductReviewDiv" class="modal fade" role="dialog">
+  <div class="review-modal-dialog modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h6 class="modal-title" style="text-align: center">Product Review</h6>
+      </div>
+      <div class="review-modal-body modal-body align-center">
+        <div id="modal-text">
+		<form name="frmfarmerdetails" id="frmfarmerdetails">
+		<div class="rows">
+			<div class="col-md-12">
+				<div class="">
+					<h6>Rate the Product</h6>
+					<select id="reviewRating">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5" selected>5</option>
+					</select>
+				</div>
+				<div>
+					<h6>Add a comment</h6>
+					<div>
+					<textarea id ="description" rows="4" cols="20" ng-model="abc" ng-required="true"></textarea>	 <br />
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+					<div>
+						<h6>Add a photo.</h6>
+						<input type="file" accept="image/*" value="Upload profilepic"
+							class="btn btn-success" name="productReviewPic" onchange="readReviewPic(this)">
+					</div>
+					<div>
+						<img id="productReviewPic" src="/images/uploadpic.png"
+							alt="/images/uploadpic.png" style="height: 120px; width: 120px;" /><br />
+					</div>
+					<input type="hidden" name="hiddenReviewPic" id="hiddenReviewPic" />
+			</div>
+			<div class="col-md-12">
+				<div>
+					<h6>Add a Video.</h6>
+					<input type="file" accept="video/*" value="Upload profilevid"
+						class="btn btn-success" name="productReviewVideo"
+						onchange="readReviewVideo(this)">
+				</div>
+				<div>
+					<video id="productReviewVideo" style="height: 200px; width: 200px;"
+						controls src="movie.mp4">
+					</video>
+				</div>
+				<input type="hidden" name="hiddenReviewVideo" id="hiddenReviewVideo" />
+				<input type="hidden" name="productReviewId" id="productReviewId"/>
+				
+			</div>
+		</div>
+			<div class="rows">
+				<div class="col-md-12 center"><br/>
+					<button class="btn btn-success"
+					ng-click="frmfarmerdetails.$valid && submitReview();">Submit Review</button>					
+				</div>
+			</div>
+		</form>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    
+      
+      </div>
+</div></div></div>
+
+</div>
+	
+<script type="text/javascript">
+/* function loadMap(Lat,Long)
+{
+	var map = new google.maps.Map(document.getElementById('map1'), {
+      zoom: 8,
+      center: new google.maps.LatLng(Lat,Long),
+      //("42.11", "-88.22"),
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    });
+	geocodeLine1(Lat,Long,map);		
+}
+
+function geocodeLine1(pointLat1, pointLon1,map)
+{
+    var gc = new google.maps.Geocoder();
+    var source = new google.maps.LatLng(pointLat1, pointLon1);
+
+	// Draw a circle around the radius
+	var circle = new google.maps.Circle({
+	center: source,
+	radius: 5000, //convert miles to meters
+	strokeColor: "#FF00FF",
+	strokeOpacity: 0.4,
+	strokeWeight: 1,
+	fillColor: "#0000FF",
+	fillOpacity: 0.4
+	});          
+	circle.setMap(map);  
+} */
+
+function loadMap(lat,lon,id)
+{
+var map = new google.maps.Map(document.getElementById(id), {
+    zoom: 8,
+    center: new google.maps.LatLng(lat, lon),
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+ geocodeLine1(lat, lon,map);		
+}		
+		
+function geocodeLine1(pointLat1, pointLon1,map)
+ {
+      var gc = new google.maps.Geocoder();
+	  var source = new google.maps.LatLng(pointLat1, pointLon1);
+
+// Draw a circle around the radius
+	var circle = new google.maps.Circle({
+  center: source,
+  radius: 5000, //convert miles to meters
+  strokeColor: "#FF00FF",
+  strokeOpacity: 0.4,
+  strokeWeight: 1,
+  fillColor: "#0000FF",
+  fillOpacity: 0.4
+ });          
+ circle.setMap(map);  
+ }
+$(document).ready(function()
+{
+	/* $(".Intransit").each(function(obj)
+	{
+		var id= $(obj).attr("id");
+		alert(id);
+		loadMap("","",id);
+	}); */
+	//alert($("#map_1").get(0));
+});
+</script>
